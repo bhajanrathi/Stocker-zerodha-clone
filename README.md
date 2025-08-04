@@ -144,8 +144,12 @@ npm run dev
 2. Set up environment variables
 3. Run `start-apps.bat` (Windows) or start manually
 4. Visit http://localhost:3000
-5. Sign up or login
-6. Access dashboard at http://localhost:5173
+5. Sign up or login 
+ # For test, use login-info:
+**- Username: test_user**
+**- E-Mail: testing@gmail.com**
+**- Password: test_password**
+6. Access dashboard at http://localhost:5173**
 
 ## 🔒 Security Features
 
