@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
@@ -34,7 +34,7 @@ function Signup() {
 
     try {
       console.log('Attempting signup with:', formData);
-      const response = await fetch('http://localhost:3002/auth/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

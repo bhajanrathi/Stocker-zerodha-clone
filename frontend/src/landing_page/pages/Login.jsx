@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
@@ -25,7 +25,7 @@ const Login = () => {
 
     try {
       console.log('Attempting login with:', formData);
-      const response = await fetch('http://localhost:3002/auth/login', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const Login = () => {
       if (data.success) {
         console.log('Login successful, redirecting to dashboard...');
         // Redirect to dashboard
-        window.location.href = 'http://localhost:3000'; // Dashboard URL
+        window.location.href = `${import.meta.env.VITE_DASHBOARD_URL}`; // Dashboard URL
       } else {
         console.log('Login failed:', data.message);
         setError(data.message || 'Login failed');

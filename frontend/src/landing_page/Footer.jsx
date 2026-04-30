@@ -24,16 +24,16 @@ function Footer() {
                                 &copy; 2010 - 2024, Not Zerodha Broking Ltd. All rights reserved.
                             </p>
                             <p>
-                                <i class="fa-brands fa-x-twitter"></i>
-                                <i class="fa-brands fa-facebook"></i>
-                                <i class="fa-brands fa-instagram"></i>
-                                <i class="fa-brands fa-linkedin-in"></i>
+                                <i className="fa-brands fa-x-twitter"></i>
+                                <i className="fa-brands fa-facebook"></i>
+                                <i className="fa-brands fa-instagram"></i>
+                                <i className="fa-brands fa-linkedin-in"></i>
                             </p>
                             <hr />
                             <p>
-                                <i class="fa-brands fa-youtube"></i>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <i class="fa-brands fa-telegram"></i>
+                                <i className="fa-brands fa-youtube"></i>
+                                <i className="fa-brands fa-whatsapp"></i>
+                                <i className="fa-brands fa-telegram"></i>
                             </p>
                         </div>
                         <div className="col-12 col-lg-3">

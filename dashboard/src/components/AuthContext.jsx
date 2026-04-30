@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch('http://localhost:3002/auth/verify', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/verify`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -31,13 +31,13 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
         setIsAuthenticated(false);
         // Redirect to login if not authenticated
-        window.location.href = 'http://localhost:5173/login';
+        window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
       }
     } catch (error) {
       console.error('Auth check failed:', error);
       setUser(null);
       setIsAuthenticated(false);
-      window.location.href = 'http://localhost:5173/login';
+      window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
     } finally {
       setLoading(false);
     }
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
       document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       setUser(null);
       setIsAuthenticated(false);
-      window.location.href = 'http://localhost:5173';
+      window.location.href = `${import.meta.env.VITE_FRONTEND_URL}`;
     } catch (error) {
       console.error('Logout failed:', error);
     }

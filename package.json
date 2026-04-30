@@ -1,0 +1,14 @@
+{
+  "name": "stocker-app",
+  "version": "1.0.0",
+  "description": "Run frontend, backend, and dashboard simultaneously",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run dashboard\"",
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm run dev",
+    "dashboard": "cd dashboard && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

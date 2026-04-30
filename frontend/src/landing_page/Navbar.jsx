@@ -42,7 +42,7 @@ function Navbar() {
                             <Link className="nav-link" to="/login">Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link btn btn-primary" to="/signup" style={{ color: 'white', marginLeft: '10px' }}>Sign Up</Link>
+                            <Link className="nav-link btn btn-primary" to="/signup">Sign Up</Link>
                         </li>
                     </ul>
                 </div>
