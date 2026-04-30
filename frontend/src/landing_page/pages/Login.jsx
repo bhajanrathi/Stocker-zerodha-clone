@@ -11,6 +11,8 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  console.log('ENV CHECK:', import.meta.env.VITE_DASHBOARD_URL, import.meta.env.VITE_API_URL);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
