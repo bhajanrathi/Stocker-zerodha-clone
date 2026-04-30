@@ -19,13 +19,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: [process.env.VITE_API_URL, process.env.VITE_FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
-app.use(cookieParser()); // ✅ fixed
+app.use(cookieParser());
 app.use(express.json());
 app.use('/auth', authRoute);
 
