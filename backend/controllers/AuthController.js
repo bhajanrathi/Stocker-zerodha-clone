@@ -12,8 +12,9 @@ module.exports.Signup = async (req, res, next) => {
     const user = await UsersModel.create({ email, password, username, createdAt });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-      withCredentials: true,
       httpOnly: false,
+      sameSite: 'None',
+      secure: true,
     });
     res
       .status(201)
@@ -28,24 +29,25 @@ module.exports.Signup = async (req, res, next) => {
 module.exports.Login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    if(!email || !password ){
-      return res.status(400).json({message:'All fields are required', success: false})
+    if (!email || !password) {
+      return res.status(400).json({ message: 'All fields are required', success: false })
     }
     const user = await UsersModel.findOne({ email });
-    if(!user){
-      return res.status(401).json({message:'Incorrect password or email', success: false }) 
+    if (!user) {
+      return res.status(401).json({ message: 'Incorrect password or email', success: false })
     }
-    const auth = await bcrypt.compare(password,user.password)
+    const auth = await bcrypt.compare(password, user.password)
     if (!auth) {
-      return res.status(401).json({message:'Incorrect password or email', success: false }) 
+      return res.status(401).json({ message: 'Incorrect password or email', success: false })
     }
-     const token = createSecretToken(user._id);
-     res.cookie("token", token, {
-       withCredentials: true,
-       httpOnly: false,
-     });
-     res.status(200).json({ message: "User logged in successfully", success: true });
-     next()
+    const token = createSecretToken(user._id);
+    res.cookie("token", token, {
+      httpOnly: false,
+      sameSite: 'None',
+      secure: true,
+    });
+    res.status(200).json({ message: "User logged in successfully", success: true });
+    next()
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error", success: false });
